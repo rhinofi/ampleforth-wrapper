@@ -11,7 +11,8 @@
     "build:contracts": "yarn waffle .waffle.json",
     "build:types": "typechain --target ethers --outDir build/contract-types 'build/**/*.json' && tsc",
     "build": "yarn build:contracts && yarn build:types",
-    "test": "NODE_ENV=test mocha --timeout 20000 -r ts-node/register \"test/**/*.ts\""
+    "test": "NODE_ENV=test mocha --timeout 20000 -r ts-node/register \"test/**/*.ts\"",
+    "lint:ts": "eslint '{src,test}/**/*.{js,ts}'"
   },
   "devDependencies": {
     "@types/chai": "^4.2.10",
@@ -23,6 +24,9 @@
     "ts-node": "^8.6.2",
     "typechain": "1.0.3",
     "typechain-target-ethers": "1.0.3",
-    "typescript": "3.7.3"
+    "typescript": "3.7.3",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
+    "eslint-plugin-import": "^2.18.2"
   }
 }
