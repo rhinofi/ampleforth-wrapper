@@ -17,6 +17,7 @@
     "lint": "yarn lint:ts && yarn lint:contracts"
   },
   "dependencies": {
+    "ethers": "4.0.45",
     "uFragments": "ampleforth/uFragments#394792f181473a75a77d0d6d2a1a4177673516e8"
   },
   "devDependencies": {
