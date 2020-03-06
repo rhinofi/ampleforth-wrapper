@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf build dist",
-    "build:contracts": "yarn waffle .waffle.json",
+    "build:contracts": "yarn waffle .waffle.json && yarn waffle .waffle.ampleforth.json",
     "build:types": "typechain --target ethers --outDir build/contract-types 'build/**/*.json' && tsc",
     "build": "yarn build:contracts && yarn build:types",
     "test": "NODE_ENV=test mocha --timeout 20000 -r ts-node/register \"test/**/*.ts\"",
@@ -16,7 +16,11 @@
     "lint:contracts": "solium -d src/contracts",
     "lint": "yarn lint:ts && yarn lint:contracts"
   },
+  "dependencies": {
+    "uFragments": "ampleforth/uFragments#394792f181473a75a77d0d6d2a1a4177673516e8"
+  },
   "devDependencies": {
+    "@resolver-engine/core": "0.3.3",
     "@types/chai": "^4.2.10",
     "@types/mocha": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
@@ -30,6 +34,7 @@
     "ts-node": "^8.6.2",
     "typechain": "1.0.3",
     "typechain-target-ethers": "1.0.3",
-    "typescript": "3.7.3"
+    "typescript": "3.7.3",
+    "zos-lib": "2.2.2"
   }
 }

@@ -1,0 +1,5 @@
+{
+  "solcVersion": "v0.4.24+commit.e67f0147",
+  "sourcesPath": "./node_modules/uFragments/contracts",
+  "allowedPaths": ["./node_modules/openzeppelin-eth/contracts"]
+}
