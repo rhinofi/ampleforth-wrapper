@@ -13,6 +13,6 @@ describe('WrapperLock', () => {
       '',
       ''
     );
-    expect(instance.address).to.be.a('string')
+    expect(instance.address).to.be.a('string');
   });
 });
