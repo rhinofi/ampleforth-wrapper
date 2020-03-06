@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {createMockProvider, getWallets, deployContract} from 'ethereum-waffle';
+import {createMockProvider, getWallets} from 'ethereum-waffle';
 import {WrapperLockFactory} from '../build/contract-types/WrapperLockFactory';
 
 describe('WrapperLock', () => {
@@ -12,7 +12,7 @@ describe('WrapperLock', () => {
       '',
       '',
       ''
-    )
+    );
     expect(instance.address).to.be.properAddress;
   });
 });
