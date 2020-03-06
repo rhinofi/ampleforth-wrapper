@@ -12,21 +12,24 @@
     "build:types": "typechain --target ethers --outDir build/contract-types 'build/**/*.json' && tsc",
     "build": "yarn build:contracts && yarn build:types",
     "test": "NODE_ENV=test mocha --timeout 20000 -r ts-node/register \"test/**/*.ts\"",
-    "lint:ts": "eslint '{src,test}/**/*.{js,ts}'"
+    "lint:ts": "eslint '{src,test}/**/*.{js,ts}'",
+    "lint:contracts": "solium -d src/contracts",
+    "lint": "yarn lint:ts && yarn lint:contracts"
   },
   "devDependencies": {
     "@types/chai": "^4.2.10",
     "@types/mocha": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.18.2",
     "ethereum-waffle": "2.2.0",
+    "ethlint": "1.2.5",
     "mocha": "^7.1.0",
     "ts-node": "^8.6.2",
     "typechain": "1.0.3",
     "typechain-target-ethers": "1.0.3",
-    "typescript": "3.7.3",
-    "@typescript-eslint/eslint-plugin": "^2.7.0",
-    "@typescript-eslint/parser": "^2.7.0",
-    "eslint-plugin-import": "^2.18.2"
+    "typescript": "3.7.3"
   }
 }
