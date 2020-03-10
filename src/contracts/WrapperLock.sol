@@ -360,10 +360,14 @@ contract WrapperLock is BasicToken, Ownable {
         require(_forTime >= 1);
         require(now + _forTime * 1 hours >= depositLock[msg.sender]);
         IERC20(originalToken).safeTransferFrom(msg.sender, address(this), _value);
-        balances[msg.sender] = balances[msg.sender].add(_value);
-        totalSupply_ = totalSupply_.add(_value);
+        addToBalance(_value);
         depositLock[msg.sender] = now + _forTime * 1 hours;
         return true;
+    }
+
+    function addToBalance(uint256 _value) internal {
+        balances[msg.sender] = balances[msg.sender].add(_value);
+        totalSupply_ = totalSupply_.add(_value);
     }
 
     function withdraw(
@@ -382,11 +386,15 @@ contract WrapperLock is BasicToken, Ownable {
             require(block.number < signatureValidUntilBlock);
             require(isValidSignature(keccak256(msg.sender, address(this), signatureValidUntilBlock), v, r, s));
         }
-        balances[msg.sender] = balances[msg.sender].sub(_value);
-        totalSupply_ = totalSupply_.sub(_value);
+        subtractFromBalance(_value);
         depositLock[msg.sender] = 0;
         IERC20(originalToken).safeTransfer(msg.sender, _value);
         return true;
+    }
+
+    function subtractFromBalance(uint256 _value) internal {
+        balances[msg.sender] = balances[msg.sender].sub(_value);
+        totalSupply_ = totalSupply_.sub(_value);
     }
 
     function withdrawBalanceDifference() public onlyOwner returns (bool success) {

@@ -10,8 +10,8 @@
     "clean": "rm -rf build dist",
     "build:contracts": "yarn waffle .waffle.json && yarn waffle .waffle.ampleforth.json",
     "build:types": "typechain --target ethers --outDir build/contract-types 'build/**/*.json' && tsc",
-    "build": "yarn build:contracts && yarn build:types",
-    "test": "NODE_ENV=test mocha --timeout 20000 -r ts-node/register \"test/**/*.ts\"",
+    "build": "rm -rf build && yarn build:contracts && yarn build:types",
+    "test": "mocha",
     "lint:ts": "eslint '{src,test}/**/*.{js,ts}'",
     "lint:contracts": "solium -d src/contracts",
     "lint": "yarn lint:ts && yarn lint:contracts"
