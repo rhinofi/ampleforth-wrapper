@@ -8,4 +8,4 @@ The wrapper has been created in the following way:
     - Extract lines 386-387 into the `subtractFromBalance` method
 3. `AmpleforthWrapper.sol` provides decorators for all public methods converting AMPLs to/from GONS so that all public interfaces get and return token values in AMPLs.
 
-To learn more, see [tests](https://github.com/EthWorks/ampleforth-wrapper/blob/master/test/AmpleforthWrapper.ts).
+To learn more, see [tests](https://github.com/DeversiFi/ampleforth-wrapper/blob/master/test/AmpleforthWrapper.ts).
